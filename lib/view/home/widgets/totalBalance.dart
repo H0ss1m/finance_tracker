@@ -7,9 +7,9 @@ Widget totalBalance({
   required double income,
   required double expenses,
   required Function onIconPressed,
-  }) {
+}) {
   return Container(
-    height: MediaQuery.of(context).size.height * 0.21,
+    height: MediaQuery.of(context).size.height * 0.23,
     width: MediaQuery.of(context).size.width,
     decoration: BoxDecoration(
       color: mainColor,
@@ -55,11 +55,11 @@ Widget totalBalance({
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         children: [
@@ -82,6 +82,7 @@ Widget totalBalance({
                     ],
                   ),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         children: [

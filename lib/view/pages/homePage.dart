@@ -1,14 +1,17 @@
-import 'package:finance_tracker/module/color.dart';
 import 'package:finance_tracker/view/home/widgets/totalBalance.dart';
 import 'package:finance_tracker/view/home/widgets/transactions.dart';
 import 'package:flutter/material.dart';
 
-Widget homePage({required BuildContext context}) {
+Widget homePage({
+  required BuildContext context,
+  required List transactionList,
+}) {
   return Padding(
     padding: const EdgeInsets.all(20.0),
     child: SingleChildScrollView(
-      physics: const NeverScrollableScrollPhysics(),
+      // physics: const NeverScrollableScrollPhysics(),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           // Total Balance Section
           totalBalance(
@@ -23,15 +26,7 @@ Widget homePage({required BuildContext context}) {
           const SizedBox(height: 20),
 
           //Transactions Section
-          transactions(
-            context: context,
-            title: 'Food',
-            date: '20/8/2024',
-            amount: 50.00,
-            isIncome: false,
-            icon: Icons.food_bank,
-            iconBgColor: mainColor,
-          ),
+          transactions(context: context, transactionList: transactionList),
         ],
       ),
     ),

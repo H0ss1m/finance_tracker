@@ -22,7 +22,6 @@ List<IconData> iconList = [
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-
     List deptList = [
       {
         'name': 'John Doe',
@@ -75,8 +74,67 @@ class _HomeState extends State<Home> {
       },
     ];
 
+    List transactionList = [
+      {
+        'title': 'Grocery Shopping',
+        'date': '2023-09-01',
+        'icon': Icons.shopping_cart,
+        'iconBgColor': mainColor,
+        'amount': 75.50,
+        'isIncome': false,
+      },
+      {
+        'title': 'Salary',
+        'date': '2023-09-05',
+        'icon': Icons.attach_money,
+        'iconBgColor': Colors.green,
+        'amount': 1500.00,
+        'isIncome': true,
+      },
+      {
+        'title': 'Electricity Bill',
+        'date': '2023-09-10',
+        'icon': Icons.bolt,
+        'iconBgColor': Colors.orange,
+        'amount': 60.75,
+        'isIncome': false,
+      },
+      {
+        'title': 'Freelance Project',
+        'date': '2023-09-15',
+        'icon': Icons.work,
+        'iconBgColor': Colors.blue,
+        'amount': 300.00,
+        'isIncome': true,
+      },
+      {
+        'title': 'Dining Out',
+        'date': '2023-09-20',
+        'icon': Icons.restaurant,
+        'iconBgColor': Colors.purple,
+        'amount': 45.00,
+        'isIncome': false,
+      },
+      {
+        'title': 'Gym Membership',
+        'date': '2023-09-25',
+        'icon': Icons.fitness_center,
+        'iconBgColor': Colors.red,
+        'amount': 40.00,
+        'isIncome': false,
+      },
+      {
+        'title': 'Stock Dividends',
+        'date': '2023-09-28',
+        'icon': Icons.attach_money,
+        'iconBgColor': Colors.green,
+        'amount': 120.00,
+        'isIncome': true,
+      },
+    ];
+
     List<Widget> pages = [
-      homePage(context: context),
+      homePage(context: context, transactionList: transactionList),
       deptPage(context: context, deptList: deptList),
       const Center(child: Text('Analytics Page')),
       const Center(child: Text('Profile Page')),
