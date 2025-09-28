@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
     List deptList = [
       {
         'name': 'John Doe',
-        'phone': '1234567890',
+        'phone': 201234567890,
         'repaymentDate': '2023-10-01',
         'lastRepayment': '2023-09-15',
         'amount': 150.0,
@@ -33,7 +33,7 @@ class _HomeState extends State<Home> {
       },
       {
         'name': 'Jane Smith',
-        'phone': '9876543210',
+        'phone': 9876543210,
         'repaymentDate': '2023-10-05',
         'lastRepayment': '2023-09-20',
         'amount': 200.0,
@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
       },
       {
         'name': 'Alice Johnson',
-        'phone': '5551234567',
+        'phone': 5551234567,
         'repaymentDate': '2023-10-10',
         'lastRepayment': '2023-09-25',
         'amount': 300.0,
@@ -50,7 +50,7 @@ class _HomeState extends State<Home> {
 
       {
         'name': 'Bob Brown',
-        'phone': '4449876543',
+        'phone': 4449876543,
         'repaymentDate': '2023-10-15',
         'lastRepayment': '2023-09-30',
         'amount': 250.0,
@@ -58,7 +58,7 @@ class _HomeState extends State<Home> {
       },
       {
         'name': 'Charlie Davis',
-        'phone': '3334567890',
+        'phone': 3334567890,
         'repaymentDate': '2023-10-20',
         'lastRepayment': '2023-10-05',
         'amount': 180.0,
@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
       },
       {
         'name': 'Diana Evans',
-        'phone': '2229876543',
+        'phone': 2229876543,
         'repaymentDate': '2023-10-25',
         'lastRepayment': '2023-10-10',
         'amount': 220.0,

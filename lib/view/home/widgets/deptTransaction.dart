@@ -1,10 +1,13 @@
+// ignore_for_file: file_names
+
 import 'package:finance_tracker/module/color.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 Widget deptTransactionViewer({
   required BuildContext context,
   required String deptName,
-  required String phone,
+  required int phone,
   required String repaymentDate,
   required String lastRepayment,
   required double amount,
@@ -48,10 +51,7 @@ Widget deptTransactionViewer({
                         fontSize: 16,
                       ),
                     ),
-                    Text(
-                      phone,
-                      style: TextStyle(color: Colors.white),
-                    ),
+                    Text(phone.toString(), style: TextStyle(color: Colors.white)),
                   ],
                 ),
               ],
@@ -109,7 +109,9 @@ Widget deptTransactionViewer({
               ],
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                launcher(phone);
+              },
               icon: Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
@@ -123,5 +125,12 @@ Widget deptTransactionViewer({
         ),
       ],
     ),
+  );
+}
+
+void launcher(int phone) {
+  launchUrl(
+    Uri.parse('tel:$phone'),
+    mode: LaunchMode.externalNonBrowserApplication,
   );
 }

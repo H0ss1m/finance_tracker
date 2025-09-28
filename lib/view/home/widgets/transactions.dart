@@ -17,16 +17,13 @@ Widget transactions({
           ),
           trailing: TextButton(
             onPressed: () {},
-            child: Text(
-              'View All',
-              style: TextStyle(color: Colors.blueAccent),
-            ),
+            child: Text('View All', style: TextStyle(color: Colors.blueAccent)),
           ),
         ),
         Expanded(
           child: ListView.builder(
             physics: NeverScrollableScrollPhysics(),
-            itemCount: 5,
+            itemCount: transactionList.length >= 4 ? 4 : transactionList.length,
             itemBuilder: (context, index) {
               return transactionsListView(
                 context: context,

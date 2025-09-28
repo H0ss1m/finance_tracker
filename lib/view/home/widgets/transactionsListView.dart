@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:finance_tracker/module/color.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +22,7 @@ Widget transactionsListView({
       borderRadius: BorderRadius.circular(15),
     ),
     child: ListTile(
-      leading: Icon(icon, color: mainColor),
+      leading: Icon(icon, color: iconBgColor, size: 30),
       title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
       subtitle: Text(date),
       trailing: Text(
