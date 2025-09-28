@@ -1,5 +1,6 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:finance_tracker/module/color.dart';
+import 'package:finance_tracker/view/pages/analytics_page.dart';
 import 'package:finance_tracker/view/pages/deptPage.dart';
 import 'package:finance_tracker/view/pages/homePage.dart';
 import 'package:flutter/material.dart';
@@ -136,7 +137,7 @@ class _HomeState extends State<Home> {
     List<Widget> pages = [
       homePage(context: context, transactionList: transactionList),
       deptPage(context: context, deptList: deptList),
-      const Center(child: Text('Analytics Page')),
+      analyticPage(context: context, ),
       const Center(child: Text('Profile Page')),
     ];
 

@@ -41,6 +41,7 @@ dependencies:
   animated_bottom_navigation_bar: ^1.4.0
   phonenumbers: ^1.1.1
   url_launcher: ^6.3.2
+  toggle_switch: ^2.3.0
 
 dev_dependencies:
   flutter_test:

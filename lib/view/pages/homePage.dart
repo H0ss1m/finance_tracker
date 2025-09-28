@@ -10,7 +10,7 @@ Widget homePage({
 }) {
   return Padding(
     padding: const EdgeInsets.all(20.0),
-    child: ListView(
+    child: Column(
       children: [
         // Total Balance Section
         totalBalance(
@@ -18,14 +18,13 @@ Widget homePage({
           balance: 12345.67,
           income: 12345.67,
           expenses: 32555.90,
-          onIconPressed: () {},
         ),
 
         // Some spacing
         const SizedBox(height: 20),
 
         //Transactions Section
-        transactions(context: context, transactionList: transactionList),
+        Expanded(child: transactions(context: context, transactionList: transactionList)),
       ],
     ),
   );

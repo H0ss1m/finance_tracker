@@ -1,12 +1,13 @@
+import 'package:finance_tracker/controller/stateGetX.dart';
 import 'package:finance_tracker/module/color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/state_manager.dart';
 
 Widget totalBalance({
   required BuildContext context,
   required double balance,
   required double income,
   required double expenses,
-  required Function onIconPressed,
 }) {
   return Container(
     height: MediaQuery.of(context).size.height * 0.23,
@@ -36,24 +37,40 @@ Widget totalBalance({
                 'Total Balance',
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
-              Row(
-                children: [
-                  Text(
-                    '${balance.toStringAsFixed(2)} EGP',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  IconButton(
-                    // Edit functionality as needed
-                    onPressed: () {
-                      onIconPressed();
-                    },
-                    icon: Icon(Icons.remove_red_eye, color: Colors.white),
-                  ),
-                ],
+              GetBuilder<TotalBalanceController>(
+                init: TotalBalanceController(),
+                builder: (controller) {
+                  return Row(
+                    children: [
+                      Text(
+                        controller.isVisible
+                            ? '${balance.toStringAsFixed(2)} EGP'
+                            : '*************',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+
+                      IconButton(
+                        // Edit functionality as needed
+                        onPressed: () {
+                          controller.toggleVisibility();
+                        },
+                        icon: controller.isVisible
+                            ? const Icon(
+                                Icons.visibility_off,
+                                color: Colors.white,
+                              )
+                            : const Icon(
+                                Icons.remove_red_eye,
+                                color: Colors.white,
+                              ),
+                      ),
+                    ],
+                  );
+                },
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -71,13 +88,21 @@ Widget totalBalance({
                           ),
                           const Text(
                             ' Income',
-                            style: TextStyle(color: Colors.green, fontSize: 14),
+                            style: TextStyle(
+                              color: Colors.green,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),
                       Text(
                         '${income.toStringAsFixed(2)} EGP',
-                        style: TextStyle(color: Colors.green, fontSize: 14),
+                        style: TextStyle(
+                          color: Colors.green,
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
@@ -94,13 +119,21 @@ Widget totalBalance({
                           ),
                           const Text(
                             ' Expenses',
-                            style: TextStyle(color: Colors.red, fontSize: 14),
+                            style: TextStyle(
+                              color: Colors.red,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),
                       Text(
                         '${expenses.toStringAsFixed(2)} EGP',
-                        style: TextStyle(color: Colors.red, fontSize: 14),
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
