@@ -137,7 +137,7 @@ class _HomeState extends State<Home> {
     List<Widget> pages = [
       homePage(context: context, transactionList: transactionList),
       deptPage(context: context, deptList: deptList),
-      analyticPage(context: context, ),
+      AnalyticsPage(),
       const Center(child: Text('Profile Page')),
     ];
 
