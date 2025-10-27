@@ -190,8 +190,8 @@ class _HomeState extends State<Home> {
       {'title': 'Total Income', 'amount': 1500.0, 'index': 0},
       {'title': 'Total Expenses', 'amount': 1000.0, 'index': 1},
       {'title': 'Total Balance', 'amount': 500.0, 'index': 2},
-      {'title': 'Total Dept', 'amount': 1500.0, 'index': 3},
-      {'title': 'Total Borrowed', 'amount': 1500.0, 'index': 4},
+      {'title': 'Total Dept', 'amount': 2000.0, 'index': 3},
+      {'title': 'Total Borrowed', 'amount': 500.0, 'index': 4},
       {'title': 'Total Lent', 'amount': 1500.0, 'index': 5},
     ];
 
@@ -201,7 +201,7 @@ class _HomeState extends State<Home> {
         totalData: totalData,
         transactionList: transactionList,
       ),
-      deptPage(context: context, deptList: deptList),
+      deptPage(context: context, deptList: deptList, totalData: totalData),
       AnalyticsPage(),
       const Center(child: Text('Profile Page')),
     ];

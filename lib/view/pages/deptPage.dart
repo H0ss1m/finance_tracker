@@ -3,7 +3,11 @@ import 'package:finance_tracker/view/home/widgets/deptTransaction.dart';
 import 'package:finance_tracker/view/home/widgets/deptTransactionsType.dart';
 import 'package:flutter/material.dart';
 
-Widget deptPage({required BuildContext context, required List deptList}) {
+Widget deptPage({
+  required BuildContext context,
+  required List deptList,
+  required List totalData,
+}) {
   return Column(
     children: [
       Container(
@@ -28,7 +32,7 @@ Widget deptPage({required BuildContext context, required List deptList}) {
             ),
             Text(
               // Change to dynamic value
-              '7000 EGP',
+              '${totalData[3]['amount']} EGP',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -49,14 +53,14 @@ Widget deptPage({required BuildContext context, required List deptList}) {
                     deptTransactionsType(
                       context: context,
                       transactionType: 10,
-                      transactionAmount: 200.0,
+                      transactionAmount: totalData[4]['amount'],
                       isBorrowed: true,
                     ),
 
                     deptTransactionsType(
                       context: context,
                       transactionType: 5,
-                      transactionAmount: 150.0,
+                      transactionAmount: totalData[5]['amount'],
                       isBorrowed: false,
                     ),
                   ],
