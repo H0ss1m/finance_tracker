@@ -1,30 +1,34 @@
 import 'package:finance_tracker/module/color.dart';
 import 'package:finance_tracker/view/home/widgets/transactionsListView.dart';
-import 'package:finance_tracker/view/transaction/transaction.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-Widget transactions({
-  required BuildContext context,
-  required List transactionList,
-}) {
-  return Column(
-    children: [
-      ListTile(
+class Transaction extends StatelessWidget {
+  const Transaction({super.key, required this.transactionList});
+
+  final List transactionList;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
         title: const Text(
-          'Recent Transactions',
-          style: TextStyle(fontWeight: FontWeight.bold),
+          'Transactions',
+          style: TextStyle(color: Colors.white),
         ),
-        trailing: TextButton(
+        centerTitle: true,
+        leading: IconButton(
           onPressed: () {
-            Get.to(Transaction(transactionList: transactionList));
+            Navigator.pop(context);
           },
-          child: Text('View All', style: TextStyle(color: componentColor)),
+          icon: Icon(Icons.arrow_back_ios_new_rounded),
         ),
+        iconTheme: IconThemeData(color: Colors.white),
+        backgroundColor: mainColor,
       ),
-      Expanded(
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: ListView.builder(
-          itemCount: transactionList.length >= 5 ? 5 : transactionList.length,
+          itemCount: transactionList.length,
           itemBuilder: (context, index) {
             return transactionsListView(
               context: context,
@@ -39,6 +43,6 @@ Widget transactions({
           },
         ),
       ),
-    ],
-  );
+    );
+  }
 }

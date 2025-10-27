@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 
 int touchedIndex = -1;
 
-Widget chartWidget({required Function setState}) {
+Widget chartWidget({required Function setState, required List content}) {
   return PieChart(
     PieChartData(
       pieTouchData: PieTouchData(
@@ -23,72 +23,37 @@ Widget chartWidget({required Function setState}) {
       borderData: FlBorderData(show: false),
       sectionsSpace: 0,
       centerSpaceRadius: 40,
-      sections: showingSections(),
+      sections: showingSections(content: content),
     ),
   );
 }
 
-List<PieChartSectionData> showingSections() {
-  return List.generate(4, (i) {
+List<PieChartSectionData> showingSections({required List content}) {
+  return List.generate(content.length, (i) {
     final isTouched = i == touchedIndex;
     final fontSize = isTouched ? 25.0 : 16.0;
-    final radius = isTouched ? 60.0 : 50.0;
+    final radius = isTouched ? 75.0 : 65.0;
     const shadows = [Shadow(color: Color(0xff000000), blurRadius: 2)];
-    switch (i) {
-      case 0:
-        return PieChartSectionData(
-          color: Colors.blue,
-          value: 40,
-          title: '40%',
-          radius: radius,
-          titleStyle: TextStyle(
-            fontSize: fontSize,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            shadows: shadows,
-          ),
-        );
-      case 1:
-        return PieChartSectionData(
-          color: Colors.yellow,
-          value: 30,
-          title: '30%',
-          radius: radius,
-          titleStyle: TextStyle(
-            fontSize: fontSize,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-            shadows: shadows,
-          ),
-        );
-      case 2:
-        return PieChartSectionData(
-          color: Colors.purple,
-          value: 15,
-          title: '15%',
-          radius: radius,
-          titleStyle: TextStyle(
-            fontSize: fontSize,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            shadows: shadows,
-          ),
-        );
-      case 3:
-        return PieChartSectionData(
-          color: Colors.green,
-          value: 15,
-          title: '15%',
-          radius: radius,
-          titleStyle: TextStyle(
-            fontSize: fontSize,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            shadows: shadows,
-          ),
-        );
-      default:
-        throw Error();
-    }
+    // switch (i) {
+    // case content.length - 1:
+    return PieChartSectionData(
+      color: content[i]['color'],
+      value: content[i]['value'],
+      title: '${content[i]['value'].toString()} %',
+      radius: radius,
+      titlePositionPercentageOffset: 0.5,
+      showTitle: true,
+      titleStyle: TextStyle(
+        fontSize: fontSize,
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+        shadows: shadows,
+        inherit: true,
+      ),
+    );
+    // default:
+    // throw Error();
+    // }
   });
 }
+

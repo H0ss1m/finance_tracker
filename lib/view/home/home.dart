@@ -78,6 +78,7 @@ class _HomeState extends State<Home> {
     List transactionList = [
       {
         'title': 'Grocery Shopping',
+        'category': 'Grocery',
         'date': '2023-09-01',
         'icon': Icons.shopping_cart,
         'iconBgColor': mainColor,
@@ -86,6 +87,7 @@ class _HomeState extends State<Home> {
       },
       {
         'title': 'Salary',
+        'category': 'Salary',
         'date': '2023-09-05',
         'icon': Icons.attach_money,
         'iconBgColor': Colors.green,
@@ -94,6 +96,7 @@ class _HomeState extends State<Home> {
       },
       {
         'title': 'Electricity Bill',
+        'category': 'Bill',
         'date': '2023-09-10',
         'icon': Icons.bolt,
         'iconBgColor': Colors.orange,
@@ -102,6 +105,7 @@ class _HomeState extends State<Home> {
       },
       {
         'title': 'Freelance Project',
+        'category': 'Work',
         'date': '2023-09-15',
         'icon': Icons.work,
         'iconBgColor': Colors.blue,
@@ -110,6 +114,7 @@ class _HomeState extends State<Home> {
       },
       {
         'title': 'Dining Out',
+        'category': 'Food',
         'date': '2023-09-20',
         'icon': Icons.restaurant,
         'iconBgColor': Colors.purple,
@@ -118,6 +123,7 @@ class _HomeState extends State<Home> {
       },
       {
         'title': 'Gym Membership',
+        'category': 'Health',
         'date': '2023-09-25',
         'icon': Icons.fitness_center,
         'iconBgColor': Colors.red,
@@ -126,16 +132,75 @@ class _HomeState extends State<Home> {
       },
       {
         'title': 'Stock Dividends',
+        'category': 'Work',
         'date': '2023-09-28',
         'icon': Icons.attach_money,
         'iconBgColor': Colors.green,
         'amount': 120.00,
         'isIncome': true,
       },
+      {
+        'title': 'Movie Tickets',
+        'category': 'Entertainment',
+        'date': '2023-09-30',
+        'icon': Icons.movie,
+        'iconBgColor': Colors.yellow,
+        'amount': 25.50,
+        'isIncome': false,
+      },
+      {
+        'title': 'Grocery Shopping',
+        'category': 'Grocery',
+        'date': '2023-09-01',
+        'icon': Icons.shopping_cart,
+        'iconBgColor': mainColor,
+        'amount': 75.50,
+        'isIncome': false,
+      },
+      {
+        'title': 'Salary',
+        'category': 'Salary',
+        'date': '2023-09-05',
+        'icon': Icons.attach_money,
+        'iconBgColor': Colors.green,
+        'amount': 1500.00,
+        'isIncome': true,
+      },
+      {
+        'title': 'Electricity Bill',
+        'category': 'Bill',
+        'date': '2023-09-10',
+        'icon': Icons.bolt,
+        'iconBgColor': Colors.orange,
+        'amount': 60.75,
+        'isIncome': false,
+      },
+      {
+        'title': 'Freelance Project',
+        'category': 'Work',
+        'date': '2023-09-15',
+        'icon': Icons.work,
+        'iconBgColor': Colors.blue,
+        'amount': 300.00,
+        'isIncome': true,
+      },
+    ];
+
+    List totalData = [
+      {'title': 'Total Income', 'amount': 1500.0, 'index': 0},
+      {'title': 'Total Expenses', 'amount': 1000.0, 'index': 1},
+      {'title': 'Total Balance', 'amount': 500.0, 'index': 2},
+      {'title': 'Total Dept', 'amount': 1500.0, 'index': 3},
+      {'title': 'Total Borrowed', 'amount': 1500.0, 'index': 4},
+      {'title': 'Total Lent', 'amount': 1500.0, 'index': 5},
     ];
 
     List<Widget> pages = [
-      homePage(context: context, transactionList: transactionList),
+      homePage(
+        context: context,
+        totalData: totalData,
+        transactionList: transactionList,
+      ),
       deptPage(context: context, deptList: deptList),
       AnalyticsPage(),
       const Center(child: Text('Profile Page')),

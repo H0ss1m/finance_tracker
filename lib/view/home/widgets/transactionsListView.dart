@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 Widget transactionsListView({
   required BuildContext context,
   required String title,
+  required String category,
   required String date,
   required double amount,
   required IconData icon,
   required Color iconBgColor,
   required bool isIncome,
-  required List transactionList,
 }) {
   return Container(
     // padding: const EdgeInsets.all(10),
@@ -24,7 +24,16 @@ Widget transactionsListView({
     child: ListTile(
       leading: Icon(icon, color: iconBgColor, size: 30),
       title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
-      subtitle: Text(date),
+      subtitle: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            category,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+          ),
+          Text(date),
+        ],
+      ),
       trailing: Text(
         isIncome ? '+ ${amount.toString()} EGP' : '- ${amount.toString()} EGP',
         style: TextStyle(

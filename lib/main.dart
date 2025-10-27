@@ -1,4 +1,5 @@
 import 'package:finance_tracker/view/home/home.dart';
+import 'package:finance_tracker/view/transaction/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       getPages: [
         GetPage(name: '/', page: () => const Home()),
-        // GetPage(name: '/second', page: () => const SecondPage()),
+        GetPage(name: '/transaction', page: () => const Transaction(transactionList: [],)),
       ],
     );
   }

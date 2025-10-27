@@ -48,7 +48,7 @@ Widget totalBalance({
                             : '*************',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 32,
+                          fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

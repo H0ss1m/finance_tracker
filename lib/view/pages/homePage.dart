@@ -6,25 +6,29 @@ import 'package:flutter/material.dart';
 
 Widget homePage({
   required BuildContext context,
+  required List totalData,
   required List transactionList,
 }) {
   return Padding(
     padding: const EdgeInsets.all(20.0),
     child: Column(
+      spacing: 20,
       children: [
         // Total Balance Section
         totalBalance(
           context: context,
-          balance: 12345.67,
-          income: 12345.67,
-          expenses: 32555.90,
+          balance: totalData[2]['amount'],
+          income: totalData[0]['amount'],
+          expenses: totalData[1]['amount'],
         ),
 
-        // Some spacing
-        const SizedBox(height: 20),
-
         //Transactions Section
-        Expanded(child: transactions(context: context, transactionList: transactionList)),
+        Expanded(
+          child: transactions(
+            context: context,
+            transactionList: transactionList,
+          ),
+        ),
       ],
     ),
   );
